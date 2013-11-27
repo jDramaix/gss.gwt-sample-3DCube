@@ -26,6 +26,8 @@ public interface CubeResources extends ClientBundle {
     String container();
 
     String cube();
+
+    String noTransition();
   }
 
   @Source("Cube.css")

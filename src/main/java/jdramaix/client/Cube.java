@@ -34,6 +34,7 @@ public class Cube extends Composite {
 
   private static final int KEY_DOWN_ROTATION_ANGLE = 45;
   private static CubeUiBinder uiBinder = GWT.create(CubeUiBinder.class);
+  private static CubeResources resources = GWT.create(CubeResources.class);
 
   @UiField
   DivElement cube;
@@ -86,6 +87,8 @@ public class Cube extends Composite {
   }
 
   private void onMouseDown(Event e) {
+    cube.addClassName(resources.style().noTransition());
+
     mouseLastX = e.getClientX();
     mouseLastY = e.getClientY();
 
@@ -96,6 +99,7 @@ public class Cube extends Composite {
       }
     }).mouseup(new Function() {
       public void f() {
+        cube.removeClassName(resources.style().noTransition());
         $(this).unbind("mousemove mouseup");
       }
     });
