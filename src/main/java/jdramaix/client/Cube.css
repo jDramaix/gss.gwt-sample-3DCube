@@ -12,7 +12,7 @@
     width: 400px;
     -webkit-transition: -webkit-transform 500ms ease-in-out;
     -webkit-transform-style: preserve-3d;
-    -webkit-transform: rotateX(-10deg) rotateY(20deg);
+    -webkit-transform: rotateX(-25deg) rotateY(25deg);
 }
 
 .cube.noTransition {
@@ -24,8 +24,8 @@
     position: absolute;
     height: 400px;
     width: 400px;
-    background-color: rgba(50,50,50,1);
-    border: 1px solid #939393;
+    background-color: rgb(229,72,39);
+    border: 1px solid #FFFFFF;
     display: flex;
     flex-direction: column;
     justify-content: center;

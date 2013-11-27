@@ -33,14 +33,16 @@ public class Cube extends Composite {
   }
 
   private static final int KEY_DOWN_ROTATION_ANGLE = 45;
+  private static final double MOVEMENT_REDUCER = .5;
   private static CubeUiBinder uiBinder = GWT.create(CubeUiBinder.class);
   private static CubeResources resources = GWT.create(CubeResources.class);
 
   @UiField
   DivElement cube;
 
-  private int yAngle = 20;
-  private int xAngle = -10;
+  private int yAngle = 25;
+  private int xAngle = -25;
+  private int depth;
   private int mouseLastX;
   private int mouseLastY;
 
@@ -61,8 +63,14 @@ public class Cube extends Composite {
         onMouseDown(e);
         return false;
       }
+    }).bind("mousewheel", new Function() {
+      public boolean f(Event e) {
+        onMouseWheel(e);
+        return false;
+      }
     });
   }
+
   private void onKeyDown(int keyCode) {
     switch (keyCode) {
       case 37: // left
@@ -83,7 +91,7 @@ public class Cube extends Composite {
     }
     ;
 
-    rotate();
+    updateView();
   }
 
   private void onMouseDown(Event e) {
@@ -109,17 +117,29 @@ public class Cube extends Composite {
     int x = e.getClientX();
     int y = e.getClientY();
 
-    xAngle += mouseLastY - y;
-    yAngle -= mouseLastX - x;
+    xAngle += (mouseLastY - y) * MOVEMENT_REDUCER;
+    yAngle -= (mouseLastX - x) * MOVEMENT_REDUCER;
 
     mouseLastX = x;
     mouseLastY = y;
 
-    rotate();
+    updateView();
   }
 
-  private void rotate() {
-    String rotation = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
-    cube.getStyle().setProperty("webkitTransform", rotation);
+  private void onMouseWheel(Event e) {
+    depth +=  e.getMouseWheelVelocityY() * 5;
+
+    // limit translateZ to 700px
+    if (depth > 700) {
+      depth = 700;
+    }
+
+    updateView();
+  }
+
+  private void updateView() {
+    String transformation = "translateZ(" + depth + "px ) rotateX(" + xAngle + "deg) rotateY(" +
+        yAngle + "deg)";
+    cube.getStyle().setProperty("webkitTransform", transformation);
   }
 }
