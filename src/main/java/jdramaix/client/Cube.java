@@ -106,7 +106,7 @@ public class Cube extends Composite {
     int y = e.getClientY();
 
     xAngle += mouseLastY - y;
-    yAngle += mouseLastX - x;
+    yAngle -= mouseLastX - x;
 
     mouseLastX = x;
     mouseLastY = y;

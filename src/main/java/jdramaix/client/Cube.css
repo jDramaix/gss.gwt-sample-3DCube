@@ -10,7 +10,7 @@
     margin: 0 auto;
     height: 400px;
     width: 400px;
-    -webkit-transition: -webkit-transform 1s linear;
+    -webkit-transition: -webkit-transform 200ms linear;
     -webkit-transform-style: preserve-3d;
     -webkit-transform: rotateX(-10deg) rotateY(20deg);
 }
