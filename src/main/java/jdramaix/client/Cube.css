@@ -1,0 +1,51 @@
+.container {
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 200px;
+    -webkit-transform: scale(0.75,0.75);
+}
+
+.cube {
+    position: relative;
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    -webkit-transition: -webkit-transform 1s linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(20deg);
+}
+
+
+.cube > div {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    background-color: rgba(50, 50, 50, 0.85);
+    border: 1px solid #555;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.cube > div:first-child  {
+    -webkit-transform: rotateX(90deg) translateZ(200px);
+}
+
+.cube > div:nth-child(2) {
+    -webkit-transform: translateZ(200px);
+}
+
+.cube > div:nth-child(3) {
+    -webkit-transform: rotateY(90deg) translateZ(200px);
+}
+
+.cube > div:nth-child(4) {
+    -webkit-transform: rotateY(180deg) translateZ(200px);
+}
+
+.cube > div:nth-child(5) {
+    -webkit-transform: rotateY(-90deg) translateZ(200px);
+}
+
+.cube > div:nth-child(6) {
+    -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+}

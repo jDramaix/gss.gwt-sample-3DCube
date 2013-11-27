@@ -1,0 +1,28 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+             xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+    <ui:with field='res' type='jdramaix.client.CubeResources'/>
+
+    <g:HTMLPanel styleName="{res.style.container}">
+        <div class="{res.style.cube}" ui:field="cube">
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+            <div>
+                <g:Image resource="{res.logo}"/>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>
