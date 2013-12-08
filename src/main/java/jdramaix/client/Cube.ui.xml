@@ -3,8 +3,8 @@
 
     <ui:with field='res' type='jdramaix.client.CubeResources'/>
 
-    <g:HTMLPanel styleName="{res.style.container}">
-        <div class="{res.style.cube}" ui:field="cube">
+    <g:HTMLPanel styleName="{res.style.viewport}">
+        <div class="{res.style.cube} {res.style.animate}" ui:field="cube">
             <div>
                 <g:Image resource="{res.logo}"/>
             </div>

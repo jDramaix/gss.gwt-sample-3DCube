@@ -22,12 +22,13 @@ import com.google.gwt.resources.client.ImageResource;
 
 public interface CubeResources extends ClientBundle {
   interface CubeCss extends GssResource {
-
-    String container();
+    String viewport();
 
     String cube();
 
     String noTransition();
+
+    String animate();
   }
 
   @Source("Cube.css")

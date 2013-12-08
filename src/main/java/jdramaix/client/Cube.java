@@ -19,9 +19,11 @@ package jdramaix.client;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.InputElement;
 import com.google.gwt.query.client.Function;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
@@ -45,9 +47,12 @@ public class Cube extends Composite {
   private int depth;
   private int mouseLastX;
   private int mouseLastY;
+  private InputElement enableAnimation;
 
   public Cube() {
     initWidget(uiBinder.createAndBindUi(this));
+
+    enableAnimation = InputElement.as(DOM.getElementById("enableAnimation"));
 
     initEvents();
   }
@@ -67,6 +72,17 @@ public class Cube extends Composite {
       public boolean f(Event e) {
         onMouseWheel(e);
         return false;
+      }
+    });
+
+    $(enableAnimation).bind("change", new Function() {
+      @Override
+      public void f() {
+        if (enableAnimation.isChecked()) {
+          cube.addClassName(resources.style().animate());
+        } else {
+          cube.removeClassName(resources.style().animate());
+        }
       }
     });
   }
@@ -95,7 +111,13 @@ public class Cube extends Composite {
   }
 
   private void onMouseDown(Event e) {
+    if (e.getEventTarget().cast() == enableAnimation) {
+      return;
+    }
+
     cube.addClassName(resources.style().noTransition());
+    cube.removeClassName(resources.style().animate());
+    enableAnimation.setChecked(false);
 
     mouseLastX = e.getClientX();
     mouseLastY = e.getClientY();

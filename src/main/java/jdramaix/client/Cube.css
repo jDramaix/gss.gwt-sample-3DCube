@@ -1,4 +1,13 @@
-.container {
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.viewport {
     -webkit-perspective: 800;
     -webkit-perspective-origin: 50% 200px;
     -webkit-transform: scale(0.75,0.75);
@@ -19,6 +28,9 @@
     -webkit-transition: initial;
 }
 
+.cube.animate {
+    -webkit-animation: rotation 10s linear infinite;
+}
 
 .cube > div {
     position: absolute;
