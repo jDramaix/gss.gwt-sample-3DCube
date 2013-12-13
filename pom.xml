@@ -16,6 +16,7 @@
         <gwtVersion>2.6.0-rc1</gwtVersion>
         <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <github.global.server>github</github.global.server>
     </properties>
 
     <repositories>
@@ -103,9 +104,12 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.8</version>
+                <version>0.9</version>
                 <configuration>
-                    <message>Creating site for ${project.version}</message>
+                    <message>update ${project.version}</message>
+                    <repositoryName>gss.gwt-sample-3DCube</repositoryName>
+                    <repositoryOwner>jDramaix</repositoryOwner>
+                    <outputDirectory>${webappDirectory}</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>

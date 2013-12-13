@@ -162,6 +162,7 @@ public class Cube extends Composite {
   private void updateView() {
     String transformation = "translateZ(" + depth + "px ) rotateX(" + xAngle + "deg) rotateY(" +
         yAngle + "deg)";
+    cube.getStyle().setProperty("transform", transformation);
     cube.getStyle().setProperty("webkitTransform", transformation);
   }
 }
