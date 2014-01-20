@@ -22,8 +22,11 @@
     <repositories>
         <!-- temporary repo for gss.gwt snapshot -->
         <repository>
-            <id>site</id>
-            <url>http://gwtquery.googlecode.com/svn/mavenrepo</url>
+            <id>site</id>            
+            <url>http://gwtquery-plugins.googlecode.com/svn/mavenrepo</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
